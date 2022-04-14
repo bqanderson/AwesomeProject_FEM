@@ -14,7 +14,8 @@ const App = () => {
         <View style={styles.colorBoxViewWrapper}>
           <View style={styles.bodyTextView}>
             <Text style={styles.bodyText}>
-              Here is a display of colors used within the MPLSDark theme.
+              Here is a display of some of the colors used within the MPLSDark
+              theme.
             </Text>
           </View>
           <View style={[styles.colorBoxView, styles.cyanView]}>
@@ -23,7 +24,7 @@ const App = () => {
             </Text>
           </View>
           <View style={[styles.colorBoxView, styles.magentaView]}>
-            <Text style={[styles.bodyText, styles.colorBoxText]}>
+            <Text style={[styles.bodyText, styles.whiteBoxText]}>
               Magenta #c24f9f
             </Text>
           </View>
