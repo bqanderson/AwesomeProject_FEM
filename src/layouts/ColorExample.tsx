@@ -10,7 +10,7 @@ import {
 import { ColorBox } from '../components'
 import { COLOR_LIST, MESSAGING_COLORS } from '../constants'
 
-import { Sizing, Typography, Outlines, Colors } from '../../styles'
+import { Sizing, Typography, Outlines, Colors } from '../styles'
 
 const ColorExample: FunctionComponent = () => {
   const doSomethingCool = () =>

@@ -1,7 +1,7 @@
-import React, { FunctionComponent } from "react"
-import { View, Text, StyleSheet } from "react-native"
+import React, { FunctionComponent } from 'react'
+import { View, Text, StyleSheet } from 'react-native'
 
-import { Sizing, Typography, Outlines } from "../../styles"
+import { Sizing, Typography, Outlines } from '../styles'
 
 interface ColorBoxProps {
   color: string
@@ -25,8 +25,8 @@ const ColorBox: FunctionComponent<ColorBoxProps> = ({
 
 const style = StyleSheet.create({
   colorBoxContainer: {
-    alignItems: "center",
-    justifyContent: "center",
+    alignItems: 'center',
+    justifyContent: 'center',
     marginBottom: Sizing.x10,
     padding: Sizing.x10,
     borderRadius: Outlines.borderRadius.small,

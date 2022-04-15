@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from 'react'
 import { SafeAreaView, StyleSheet } from 'react-native'
 
-import { Colors } from '../styles'
+import { Colors } from './styles'
 import { ColorExample } from './layouts'
 
 const App: FunctionComponent = () => {
