@@ -58,7 +58,6 @@ const style = StyleSheet.create({
     marginHorizontal: Sizing.x20,
   },
   headerContainer: {
-    // marginBottom: Sizing.x20,
     paddingBottom: Sizing.x10,
     backgroundColor: Colors.neutral.black,
     borderBottomWidth: Outlines.borderWidth.thin,
@@ -88,7 +87,6 @@ const style = StyleSheet.create({
   },
   divider: {
     marginTop: Sizing.x10,
-    marginBottom: Sizing.x20,
     borderBottomWidth: Outlines.borderWidth.hairline,
     borderColor: Colors.neutral.s400,
   },
