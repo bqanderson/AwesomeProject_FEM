@@ -1,6 +1,14 @@
 import React, { FunctionComponent } from 'react'
-import { View, Text, StyleSheet, Button } from 'react-native'
+import {
+  View,
+  Text,
+  StyleSheet,
+  Button,
+  FlatList,
+  SectionList,
+} from 'react-native'
 import { ColorBox } from '../components'
+import { COLOR_LIST, MESSAGING_COLORS } from '../constants'
 
 import { Sizing, Typography, Outlines, Colors } from '../../styles'
 
@@ -16,55 +24,24 @@ const ColorExample: FunctionComponent = () => {
           Accent colors of the MPLSDark theme.
         </Text>
       </View>
-      <View style={style.colorBoxContainer}>
-        <ColorBox
-          color={Colors.primary.s200}
-          label="Primary (s200)"
-          labelColor={Colors.neutral.black}
-        />
-        <ColorBox
-          color={Colors.primary.brand}
-          label="Primary (brand)"
-          labelColor={Colors.neutral.black}
-        />
-        <ColorBox
-          color={Colors.primary.s600}
-          label="Primary (s600)"
-          labelColor={Colors.neutral.white}
-        />
-        <View style={style.divider} />
-        <ColorBox
-          color={Colors.secondary.s200}
-          label="Secondary (s200)"
-          labelColor={Colors.neutral.black}
-        />
-        <ColorBox
-          color={Colors.secondary.brand}
-          label="Secondary (brand)"
-          labelColor={Colors.neutral.black}
-        />
-        <ColorBox
-          color={Colors.secondary.s600}
-          label="Secondary (s600)"
-          labelColor={Colors.neutral.black}
-        />
-        <View style={style.divider} />
-        <ColorBox
-          color={Colors.success.s400}
-          label="Success"
-          labelColor={Colors.neutral.white}
-        />
-        <ColorBox
-          color={Colors.warning.s400}
-          label="Warning"
-          labelColor={Colors.neutral.black}
-        />
-        <ColorBox
-          color={Colors.danger.s400}
-          label="Danger"
-          labelColor={Colors.neutral.white}
-        />
-      </View>
+      <SectionList
+        style={style.colorBoxContainer}
+        sections={COLOR_LIST}
+        keyExtractor={(item, index) => `${item.hexCode}_0${index}`}
+        renderItem={({ item }) => (
+          <ColorBox
+            color={item.hexCode}
+            label={item.colorName}
+            labelColor={item.labelColor}
+          />
+        )}
+        renderSectionHeader={({ section }) => (
+          <View style={style.sectionHeaderContainer}>
+            <Text style={style.sectionHeader}>{section.title}</Text>
+          </View>
+        )}
+        renderSectionFooter={() => <View style={style.divider} />}
+      />
       <Button
         color={Colors.secondary.brand}
         onPress={() => doSomethingCool()}
@@ -81,14 +58,11 @@ const style = StyleSheet.create({
     marginHorizontal: Sizing.x20,
   },
   headerContainer: {
-    marginBottom: Sizing.x20,
+    // marginBottom: Sizing.x20,
     paddingBottom: Sizing.x10,
+    backgroundColor: Colors.neutral.black,
     borderBottomWidth: Outlines.borderWidth.thin,
     borderColor: Colors.neutral.s500,
-  },
-  colorBoxContainer: {
-    flex: 1,
-    padding: 10,
   },
   header: {
     ...Typography.header.x60,
@@ -98,11 +72,25 @@ const style = StyleSheet.create({
     ...Typography.subheader.x20,
     textAlign: 'center',
   },
+  colorBoxContainer: {
+    flex: 1,
+    padding: Sizing.x10,
+    paddingTop: 0,
+    backgroundColor: Colors.neutral.black,
+  },
+  sectionHeaderContainer: {
+    paddingVertical: Sizing.x10,
+    backgroundColor: Colors.neutral.black,
+  },
+  sectionHeader: {
+    ...Typography.subheader.x30,
+    textTransform: 'uppercase',
+  },
   divider: {
     marginTop: Sizing.x10,
     marginBottom: Sizing.x20,
     borderBottomWidth: Outlines.borderWidth.hairline,
-    borderColor: Colors.neutral.s500,
+    borderColor: Colors.neutral.s400,
   },
 })
 
