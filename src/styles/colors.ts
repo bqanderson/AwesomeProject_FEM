@@ -1,60 +1,60 @@
 type Neutral =
-  | "white"
-  | "s100"
-  | "s150"
-  | "s200"
-  | "s250"
-  | "s300"
-  | "s400"
-  | "s500"
-  | "s600"
-  | "s700"
-  | "s800"
-  | "s900"
-  | "black"
+  | 'white'
+  | 's100'
+  | 's150'
+  | 's200'
+  | 's250'
+  | 's300'
+  | 's400'
+  | 's500'
+  | 's600'
+  | 's700'
+  | 's800'
+  | 's900'
+  | 'black'
 export const neutral: Record<Neutral, string> = {
-  white: "#F1F1F2",
-  s100: "#EAEAEC",
-  s150: "#DADADD",
-  s200: "#CAC9CE",
-  s250: "#BCBBC1",
-  s300: "#A2A0A8",
-  s400: "#87858F",
-  s500: "#524F5E",
-  s600: "#373445",
-  s700: "#2A2739",
-  s800: "#232033",
-  s900: "#1F1C2F",
-  black: "#1C192C",
+  white: '#F1F1F2',
+  s100: '#EAEAEC',
+  s150: '#DADADD',
+  s200: '#CAC9CE',
+  s250: '#BCBBC1',
+  s300: '#A2A0A8',
+  s400: '#87858F',
+  s500: '#524F5E',
+  s600: '#373445',
+  s700: '#2A2739',
+  s800: '#232033',
+  s900: '#1F1C2F',
+  black: '#1C192C',
 }
 
-type Primary = "brand" | "s200" | "s600"
+type Primary = 'brand' | 's200' | 's600'
 export const primary: Record<Primary, string> = {
-  s200: "#7BA7CC",
-  brand: "#4682B4",
-  s600: "#336084",
+  s200: '#7BA7CC',
+  brand: '#4682B4',
+  s600: '#336084',
 }
 
-type Secondary = "brand" | "s200" | "s600"
+type Secondary = 'brand' | 's200' | 's600'
 export const secondary: Record<Secondary, string> = {
-  s200: "#ADFF5C",
-  brand: "#7FFF00",
-  s600: "#66CC00",
+  s200: '#ADFF5C',
+  brand: '#7FFF00',
+  s600: '#66CC00',
 }
 
-type Danger = "s400"
+type Danger = 's400'
 export const danger: Record<Danger, string> = {
-  s400: "#A43C2A",
+  s400: '#A43C2A',
 }
 
-type Success = "s400"
+type Success = 's400'
 export const success: Record<Success, string> = {
-  s400: "#809556",
+  s400: '#809556',
 }
 
-type Warning = "s400"
+type Warning = 's400'
 export const warning: Record<Warning, string> = {
-  s400: "#FFD700",
+  s400: '#FFD700',
 }
 
 const applyOpacity = (hexColor: string, opacity: number): string => {
@@ -65,9 +65,9 @@ const applyOpacity = (hexColor: string, opacity: number): string => {
   return `rgba(${red}, ${green}, ${blue}, ${opacity})`
 }
 
-type Transparent = "clear" | "lightGray" | "darkGray"
+type Transparent = 'clear' | 'lightGray' | 'darkGray'
 export const transparent: Record<Transparent, string> = {
-  clear: "rgba(255, 255, 255, 0)",
+  clear: 'rgba(255, 255, 255, 0)',
   lightGray: applyOpacity(neutral.s300, 0.4),
   darkGray: applyOpacity(neutral.s800, 0.8),
 }
@@ -92,7 +92,7 @@ export const shadeColor = (hexColor: string, percent: number): string => {
   const shadedRGB: Array<number> = rgb.map(toShadedGamut)
   const shadedHex: Array<string> = shadedRGB.map(toHex)
 
-  const hexString: string = shadedHex.join("")
+  const hexString: string = shadedHex.join('')
 
   return `#${hexString}`
 }
