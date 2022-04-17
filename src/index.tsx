@@ -1,22 +1,49 @@
 import React, { FunctionComponent } from 'react'
-import { SafeAreaView, StyleSheet } from 'react-native'
+import { NavigationContainer } from '@react-navigation/native'
+import { createStackNavigator } from '@react-navigation/stack'
+import { Home, ColorExample, Soralized } from './screens'
 
 import { Colors } from './styles'
-import { ColorExample } from './layouts'
 
 const App: FunctionComponent = () => {
+  const Stack = createStackNavigator()
+
   return (
-    <SafeAreaView style={styles.safeArea}>
-      <ColorExample />
-    </SafeAreaView>
+    <NavigationContainer>
+      <Stack.Navigator
+        screenOptions={{
+          headerStyle: {
+            backgroundColor: Colors.neutral.black,
+            shadowColor: 'transparent',
+          },
+          headerTintColor: Colors.secondary.brand,
+          headerBackTitleVisible: false,
+        }}
+      >
+        <Stack.Screen name="Color Palettes" component={Home} />
+        <Stack.Screen
+          options={{ title: 'MPLS Dark Pro' }}
+          name="ColorExample"
+          component={ColorExample}
+        />
+        <Stack.Screen
+          options={({ route }) => {
+            console.log('TEST ===> options route params:', route)
+            return {
+              headerStyle: {
+                backgroundColor: Colors.solarized.base03,
+                shadowColor: 'transparent',
+              },
+              headerTintColor: Colors.solarized.yellow,
+              title: 'Solarized',
+            }
+          }}
+          name="Solarized"
+          component={Soralized}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
   )
 }
-
-const styles = StyleSheet.create({
-  safeArea: {
-    flex: 1,
-    backgroundColor: Colors.neutral.black,
-  },
-})
 
 export default App

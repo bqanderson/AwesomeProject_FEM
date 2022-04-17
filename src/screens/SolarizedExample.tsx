@@ -1,32 +1,25 @@
 import React, { FunctionComponent } from 'react'
-import {
-  View,
-  Text,
-  StyleSheet,
-  Button,
-  FlatList,
-  SectionList,
-} from 'react-native'
+import { View, Text, StyleSheet, SectionList } from 'react-native'
 import { ColorBox } from '../components'
-import { COLOR_LIST, MESSAGING_COLORS } from '../constants'
+import { SOLARIZED_COLORS } from '../constants'
 
 import { Sizing, Typography, Outlines, Colors } from '../styles'
 
-const ColorExample: FunctionComponent = () => {
+const SolarizedExample: FunctionComponent = () => {
   const doSomethingCool = () =>
     alert(`There's no place like home, there's no place like home...`)
 
   return (
     <View style={style.container}>
       <View style={style.headerContainer}>
-        <Text style={style.header}>Serenity | Colors</Text>
+        <Text style={style.header}>Solarized</Text>
         <Text style={style.subheader}>
-          Accent colors of the MPLSDark theme.
+          Colors Palette of the 'Solaized' theme.
         </Text>
       </View>
       <SectionList
         style={style.colorBoxContainer}
-        sections={COLOR_LIST}
+        sections={SOLARIZED_COLORS}
         keyExtractor={(item, index) => `${item.hexCode}_0${index}`}
         renderItem={({ item }) => (
           <ColorBox
@@ -42,11 +35,6 @@ const ColorExample: FunctionComponent = () => {
         )}
         renderSectionFooter={() => <View style={style.divider} />}
       />
-      <Button
-        color={Colors.secondary.brand}
-        onPress={() => doSomethingCool()}
-        title="Home"
-      />
     </View>
   )
 }
@@ -54,17 +42,20 @@ const ColorExample: FunctionComponent = () => {
 const style = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: Sizing.x10,
-    marginHorizontal: Sizing.x20,
+    paddingTop: Sizing.x10,
+    paddingHorizontal: Sizing.x20,
+    backgroundColor: Colors.solarized.base03,
   },
   headerContainer: {
     paddingBottom: Sizing.x10,
-    backgroundColor: Colors.neutral.black,
+    backgroundColor: Colors.solarized.base03,
     borderBottomWidth: Outlines.borderWidth.thin,
-    borderColor: Colors.neutral.s500,
+    borderColor: Colors.solarized.base1,
   },
   header: {
     ...Typography.header.x60,
+    color: Colors.solarized.yellow,
+    letterSpacing: 6,
     textAlign: 'center',
   },
   subheader: {
@@ -75,21 +66,22 @@ const style = StyleSheet.create({
     flex: 1,
     padding: Sizing.x10,
     paddingTop: 0,
-    backgroundColor: Colors.neutral.black,
+    backgroundColor: Colors.solarized.base03,
   },
   sectionHeaderContainer: {
     paddingVertical: Sizing.x10,
-    backgroundColor: Colors.neutral.black,
+    backgroundColor: Colors.solarized.base03,
   },
   sectionHeader: {
     ...Typography.subheader.x30,
+    color: Colors.solarized.base01,
     textTransform: 'uppercase',
   },
   divider: {
     marginTop: Sizing.x10,
     borderBottomWidth: Outlines.borderWidth.hairline,
-    borderColor: Colors.neutral.s400,
+    borderColor: Colors.solarized.base2,
   },
 })
 
-export default ColorExample
+export default SolarizedExample
