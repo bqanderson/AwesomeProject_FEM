@@ -10,7 +10,7 @@ const Home: FunctionComponent = ({ navigation }) => {
         style={[style.button, style.mplsBtn]}
         underlayColor={Colors.primary.s600}
         activeOpacity={0.65}
-        onPress={() => navigation.navigate('ColorExample')}
+        onPress={() => navigation.navigate('MplsDark')}
       >
         <Text style={style.mplsLabel}>MPLS Dark Pro</Text>
       </TouchableHighlight>

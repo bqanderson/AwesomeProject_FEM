@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from 'react'
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
-import { Home, ColorExample, Soralized } from './screens'
+import { Home, MplsDark, Soralized } from './screens'
 
 import { Colors } from './styles'
 
@@ -23,12 +23,11 @@ const App: FunctionComponent = () => {
         <Stack.Screen name="Color Palettes" component={Home} />
         <Stack.Screen
           options={{ title: 'MPLS Dark Pro' }}
-          name="ColorExample"
-          component={ColorExample}
+          name="MplsDark"
+          component={MplsDark}
         />
         <Stack.Screen
-          options={({ route }) => {
-            console.log('TEST ===> options route params:', route)
+          options={() => {
             return {
               headerStyle: {
                 backgroundColor: Colors.solarized.base03,

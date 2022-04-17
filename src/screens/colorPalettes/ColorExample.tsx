@@ -1,25 +1,23 @@
 import React, { FunctionComponent } from 'react'
 import { View, Text, StyleSheet, SectionList } from 'react-native'
-import { ColorBox } from '../components'
-import { SOLARIZED_COLORS } from '../constants'
+import { ColorBox } from '../../components'
+import { MPLS_DARK_COLORS } from '../../constants'
 
-import { Sizing, Typography, Outlines, Colors } from '../styles'
+import { Sizing, Typography, Outlines, Colors } from '../../styles'
 
-const SolarizedExample: FunctionComponent = () => {
-  const doSomethingCool = () =>
-    alert(`There's no place like home, there's no place like home...`)
-
+const ColorExample: FunctionComponent = () => {
   return (
     <View style={style.container}>
       <View style={style.headerContainer}>
-        <Text style={style.header}>Solarized</Text>
+        <Text style={style.header}>MPLS Dark Pro</Text>
         <Text style={style.subheader}>
-          Colors Palette of the 'Solaized' theme.
+          Accent colors of the 'MPLS Dark Pro' theme.
         </Text>
       </View>
       <SectionList
+        da
         style={style.colorBoxContainer}
-        sections={SOLARIZED_COLORS}
+        sections={MPLS_DARK_COLORS}
         keyExtractor={(item, index) => `${item.hexCode}_0${index}`}
         renderItem={({ item }) => (
           <ColorBox
@@ -44,17 +42,16 @@ const style = StyleSheet.create({
     flex: 1,
     paddingTop: Sizing.x10,
     paddingHorizontal: Sizing.x20,
-    backgroundColor: Colors.solarized.base03,
+    backgroundColor: Colors.neutral.black,
   },
   headerContainer: {
     paddingBottom: Sizing.x10,
-    backgroundColor: Colors.solarized.base03,
+    backgroundColor: Colors.neutral.black,
     borderBottomWidth: Outlines.borderWidth.thin,
-    borderColor: Colors.solarized.base1,
+    borderColor: Colors.neutral.s500,
   },
   header: {
     ...Typography.header.x60,
-    color: Colors.solarized.yellow,
     letterSpacing: 6,
     textAlign: 'center',
   },
@@ -66,22 +63,21 @@ const style = StyleSheet.create({
     flex: 1,
     padding: Sizing.x10,
     paddingTop: 0,
-    backgroundColor: Colors.solarized.base03,
+    backgroundColor: Colors.neutral.black,
   },
   sectionHeaderContainer: {
     paddingVertical: Sizing.x10,
-    backgroundColor: Colors.solarized.base03,
+    backgroundColor: Colors.neutral.black,
   },
   sectionHeader: {
     ...Typography.subheader.x30,
-    color: Colors.solarized.base01,
     textTransform: 'uppercase',
   },
   divider: {
     marginTop: Sizing.x10,
     borderBottomWidth: Outlines.borderWidth.hairline,
-    borderColor: Colors.solarized.base2,
+    borderColor: Colors.neutral.s400,
   },
 })
 
-export default SolarizedExample
+export default ColorExample
